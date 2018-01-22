@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>用户信息</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}" />
+    <script th:src="@{/bootstrap/js/bootstrap.js}"> </script>
+</head>
+<body>
+
+<table  class="table table-striped">
+    <caption>用户列表</caption>
+    <thead>
+        <tr>
+            <th>账号</th>
+            <th>密码</th>
+            <th>电话</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+   <tbody>
+       <tr th:each="user:${users}">
+           <td th:text="${user.userName}"></td>
+           <td th:text="${user.passWord}"></td>
+           <td th:text="${user.phone}"></td>
+           <td><a class="btn btn-primary" th:href="${'/update?id='+user.id}">修改 </a>
+               <a class="btn btn-primary" th:onclick="${'deleteUser('+user.id+')'}" >删除</a>
+           </td>
+       </tr>
+   </tbody>
+
+</table>
+<a class="btn btn-primary" style="margin-left:48%;" th:href="@{/index.html}">添加</a>
+
+<script th:inline="javascript">
+    function deleteUser (id) {
+
+        if( confirm("是否要删除该用户")){
+
+        }
+    }
+</script>
+</body>
+</html>

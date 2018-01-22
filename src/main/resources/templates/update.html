@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>添加用户</title>
+</head>
+<body>
+    <form action="#" th:object="${User}" th:action="@{/edit}" th:method="get" >
+        <input type="text" name="userName"  th:value="${user.userName}"/>
+        <input type="password" name="passWord"  th:value="${user.passWord}"/>
+        <input type="text" name="phone" th:value="${user.phone}"/>
+        <input type="hidden" name="id" th:value="${user.id}" />
+        <input type="submit"  value="修改"/>
+        <input type="submit"  value="取消" th:href="${'/userInfo'}"/>
+    </form>
+</body>
+</html>
